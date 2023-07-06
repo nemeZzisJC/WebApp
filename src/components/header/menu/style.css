@@ -1,0 +1,43 @@
+.menuIcon{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    width: 56px;
+    height: 56px;
+    background-image: url('https://cdn.icon-icons.com/icons2/916/PNG/512/Menu_icon_2_icon-icons.com_71856.png');
+    background-size: contain;
+}
+
+.dropdown{
+    margin-top: 0px;
+    margin-right: 40px;
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 56px;
+}
+
+.dropdownContent{
+    text-align: center;
+    padding: 3px 10px;
+    top: 50px;
+    right: 10px;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 200px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdownContent{
+    display: block;
+}
+
+.dropdown:active .dropdownContent{
+    display: block;
+}
+
+.menuDiv{
+    width: 100%;
+    text-align: right;
+}
