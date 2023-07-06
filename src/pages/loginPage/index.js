@@ -25,7 +25,7 @@ export const LoginPage = () => {
     };
 
     useEffect(() => {
-        fetch("http://localhost:3000/users")
+        fetch("http://localhost:3001/users")
             .then((res) => {
                 return (res.json());
             })
