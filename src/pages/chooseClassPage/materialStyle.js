@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from "react";
 import Card from "@mui/material/Card";
 import Slider from '@mui/material/Slider';
 import { alpha, styled } from '@mui/material/styles';

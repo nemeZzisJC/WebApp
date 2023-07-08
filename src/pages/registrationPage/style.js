@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Link } from "react-router-dom"
+import Back from '../mainPage/back2.jpg'
 
 export const AuthPageBody = styled.div`
     text-align: center;
@@ -8,7 +8,8 @@ export const AuthPageBody = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80');
+    background-image: url(${Back});
+    background-size: cover;
 `
 
 export const AuthFormContainer = styled.div`
@@ -46,12 +47,12 @@ export const AuthSubmitButton = styled.button`
     border: none;
     font-family: 'Montserrat';
     font-weight: 600;
-    background-color: #01A16C;
+    background-color: #02cc88;
     margin-top: 30px;
     padding: 20px;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: 0px 3.5px rgb(1, 127, 85);
+    box-shadow: 0px 3.5px rgb(1, 161, 108);
 `
 
 export const AuthLinkButton = styled.button`
