@@ -9,6 +9,7 @@ import ChooseClassPage from "./pages/chooseClassPage";
 import ChooseOlympPage from "./pages/chooseOlympPage";
 import ChooseYearPage from "./pages/chooseYearPage";
 import SolveTaskPage from "./pages/solveTaskPage";
+import ChooseStagePage from "./pages/chooseStagePage";
 
 export const OlympContext = createContext({});
 
@@ -57,10 +58,13 @@ const App = () => {
           <Route path='/chooseYear' element={
             <ChooseYearPage/>
           }/>
-          <Route path='/solveTaskPage' element={
+          <Route path='/solveTask' element={
             <SolveTaskPage/>
           }
           />
+          <Route path="/chooseStage" element={
+            <ChooseStagePage/>
+          }/>
         </Routes>
         </OlympContext.Provider>
 

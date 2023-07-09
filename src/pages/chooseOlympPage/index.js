@@ -24,7 +24,7 @@ const ChooseOlympPage = () => {
     const handleClick = (value) => {
         setOlympName(value);
         console.log(olympName);
-        navigate('/chooseClass');
+        navigate('/chooseYear');
     }
 
     const values = ["Ломоносов", "Физтех", "ОММО", "Покори Воробъёвы Горы", "Высшая Проба", "МОШ", "Курчатов", "Росатом"]
@@ -33,7 +33,7 @@ const ChooseOlympPage = () => {
             <Heading style={{fontSize: "30px", marginTop: "8vh"}}>Выберите олимпиаду</Heading>
             <StyledList>
                 {values.map((value, index) => (
-                    <ListItem key={index}>
+                    <ListItem key={index} sx={{padding: "2px 4px"}}>
                         <StyledListItemButton onClick={() => {handleClick(value)}}>
                         <ListItemText>
                             <NormalText style={{fontSize: "20px"}}>{value}</NormalText>

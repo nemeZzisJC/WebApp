@@ -1,7 +1,7 @@
 import React from "react";
 import { Heading } from "../../components/fonts/style";
 import { ChooseClassPageContainer, ChoosePageBody } from "./style.js";
-import ClassCard from "./materialStyle";
+import ClassCard from "../../components/card/classCard";
 import { useContext } from "react";
 import { OlympContext } from "../../App";
 import { useNavigate } from "react-router-dom";
@@ -17,34 +17,27 @@ const ChooseClassPage = () => {
     } = useContext(OlympContext);
 
     const navigate = useNavigate();
+    const values = [9, 10, 11];
 
     const handleClick = (value) => {
         setGrade(value);
         console.log(grade);
-        navigate('/chooseYear');
+        navigate('/chooseStage');
     };
+
 
     return (
         <ChoosePageBody>
             <Heading>Выберите класс</Heading>
             <ChooseClassPageContainer>
-                <ClassCard onClick={() => {handleClick('9')}}>
-                    <Heading style={{fontSize: 100}}>
-                    9
-                    </Heading>
-                </ClassCard>
 
-                <ClassCard onClick={() => {handleClick('10')}}>
-                    <Heading style={{fontSize: 100}}>
-                    10
-                    </Heading>
-                </ClassCard>
-
-                <ClassCard onClick={() => {handleClick('11')}}>
-                    <Heading style={{fontSize: 100}}>
-                    11
-                    </Heading>
-                </ClassCard>
+                {values.map((value, index) => (
+                    <ClassCard onClick={() => handleClick(value.toString())}>
+                        <Heading style={{fontSize: 100}}>
+                            {value}
+                        </Heading>
+                    </ClassCard>
+                ))}
                 
             </ChooseClassPageContainer>
         </ChoosePageBody>

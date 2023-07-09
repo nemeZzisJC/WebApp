@@ -25,7 +25,7 @@ const ChooseYearPage = () => {
     const handleClick = (value) => {
         setYear(value);
         console.log(year);
-        navigate('/solveTaskPage');
+        navigate('/chooseClass');
     };
 
     return(
