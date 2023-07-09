@@ -31,7 +31,7 @@ const RegistrationPage = () => {
             console.error(error);
         });
 
-        navigation('/chooseClass');
+        navigation('/chooseOlymp');
     };
 
     const handleUsernameChange = (event) => {

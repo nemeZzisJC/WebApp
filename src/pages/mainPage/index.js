@@ -95,7 +95,6 @@ const MainPage = () => {
                     <NormalTextMono>Следите за ходом мыслей. Как вы дошли до решения? Как могли бы дойти (если не решили)?</NormalTextMono>
                 </GridSectionFourth>
             </GridSection>
-            
 
         </MainPageBody>
     );

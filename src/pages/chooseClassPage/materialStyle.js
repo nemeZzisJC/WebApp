@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "@mui/material/Card";
 import Slider from '@mui/material/Slider';
-import { alpha, styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 
 const ClassCard = styled(Card)(({theme}) => ({
     width: '20vw',

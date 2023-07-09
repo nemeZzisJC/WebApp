@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Button from '@mui/material/Button';
+import React, { useState, useEffect, createContext } from "react";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
@@ -7,24 +6,34 @@ import MainPage from "./pages/mainPage"
 import RegistrationPage from "./pages/registrationPage";
 import LoginPage from "./pages/loginPage";
 import ChooseClassPage from "./pages/chooseClassPage";
-import TasksPage from "./pages/tasksPage";
+import ChooseOlympPage from "./pages/chooseOlympPage";
+import ChooseYearPage from "./pages/chooseYearPage";
+import SolveTaskPage from "./pages/solveTaskPage";
+
+export const OlympContext = createContext({});
 
 const App = () => {
 
-  const [userInput, setUserInput] = useState("Input");
-  const [inputButton, setInputButton] = useState(false);
-  const [state, setState] = useState(false);
+  const [olympName, setOlympName] = useState('');
+  const [grade, setGrade] = useState('');
+  const [year, setYear] = useState('');
+  const [stage, setStage] = useState('');
+  const [taskNumber, setTaskNumber] = useState('');
 
-  const handleOnChangeInput = (event) => {
-    setUserInput(event.target.value);
-    console.log(event.target.value);
-  }
+  const OlympContextValue = {
+    olympName, setOlympName,
+    grade, setGrade,
+    year, setYear,
+    stage, setStage,
+    taskNumber, setTaskNumber
+  };
 
   return (
     <>
       <BrowserRouter>
         <Header/>
 
+        <OlympContext.Provider value={OlympContextValue}>
         <Routes>
           <Route path='/' element={
             <MainPage/>
@@ -38,13 +47,23 @@ const App = () => {
           <Route path='/login' element={
             <LoginPage/>
           }/>
+          <Route  path='/chooseOlymp' element={
+            <ChooseOlympPage/>
+          }
+          />
           <Route path='/chooseClass' element={
-            <ChooseClassPage/>
+              <ChooseClassPage/>
           }/>
-          <Route path='/tasks' element={
-            <TasksPage/>
+          <Route path='/chooseYear' element={
+            <ChooseYearPage/>
           }/>
+          <Route path='/solveTaskPage' element={
+            <SolveTaskPage/>
+          }
+          />
         </Routes>
+        </OlympContext.Provider>
+
       </BrowserRouter>
     </>
   );
