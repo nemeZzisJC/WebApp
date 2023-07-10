@@ -2,10 +2,11 @@ import React from "react";
 import olympData from "../../aboutOlympData.json";
 import { AboutInfoContainer, AboutInfoHeading, AboutInfoHeadingImage, AboutInfoImage, AboutInfoTextContainer, AboutOlympPageBody } from "./style";
 import { Heading, NormalText } from "../../components/fonts/style";
-import { AttentionText, HeadingAndIcon, PreLinkText, TextSectionContainer, TextSectionLink, TextSectionList, TextSectionText } from "../../components/textSections/style";
+import { AttentionText, HeadingAndIcon, PreLinkText, TextSectionContainer, TextSectionLink, TextSectionInnerList, TextSectionText } from "../../components/textSections/style";
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import FlakyRoundedIcon from '@mui/icons-material/FlakyRounded';
 import WorkspacePremiumRoundedIcon from '@mui/icons-material/WorkspacePremiumRounded';
+import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 
 const displayAboutOlympPage = () => {
     let content = [];
@@ -84,11 +85,11 @@ const displayAboutOlympPage = () => {
                     </TextSectionText>
                     
                     {hasList ? 
-                    <TextSectionList>
+                    <TextSectionInnerList>
                     {itemsList.map((value, index) => (
                         <NormalText>{index + 1}. {value}</NormalText>
                         ))}
-                    </TextSectionList>: null }
+                    </TextSectionInnerList>: null }
 
                 </TextSectionContainer>
             )
@@ -112,6 +113,32 @@ const displayAboutOlympPage = () => {
                     <TextSectionText>
                         <AttentionText>{finalAttention}</AttentionText>
                     </TextSectionText>
+                </TextSectionContainer>
+            )
+        }
+
+        // displaying preparation materials
+
+        if (curComponent.id === 5) {
+            const materialInfo = curComponent["preparationInfo"];
+            const textItems = materialInfo["preparationTextItems"];
+            const linkItems = materialInfo["preparationLinkItems"];
+
+            content.push(
+                <TextSectionContainer style={{backgroundColor: "lightGray"}}>
+                    <HeadingAndIcon>
+                        <MenuBookRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></MenuBookRoundedIcon><Heading>Материалы для подготовки</Heading>
+                    </HeadingAndIcon>
+                    
+                    {
+                        textItems.map((value, index) => (
+                            <TextSectionText>
+                                <NormalText style={{marginBottom: "3vh"}}><TextSectionLink href={linkItems[index]}>{index + 1}. {value[0]}</TextSectionLink></NormalText>
+                                <NormalText style={{marginLeft: "2vw"}}>{value[1]}</NormalText>
+                            </TextSectionText>
+                        ))
+                    }
+
                 </TextSectionContainer>
             )
         }

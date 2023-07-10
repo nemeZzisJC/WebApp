@@ -24,7 +24,7 @@ export const TextSectionLink = styled.a`
     text-decoration: none;
 `
 
-export const TextSectionList = styled.div`
+export const TextSectionInnerList = styled.div`
     width: 80%;
     margin-left: 10%;
     margin-top: 5vh;
