@@ -6,7 +6,7 @@ import StyledListItemButton from "../../components/list/styledListItemButton";
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { useContext } from "react";
-import { OlympContext } from "../../App.js";
+import { OlympContext } from "../../context/index.js";
 import { useNavigate } from "react-router-dom";
 
 const ChooseYearPage = () => {
@@ -15,8 +15,7 @@ const ChooseYearPage = () => {
         olympName, setOlympName,
         grade, setGrade,
         year, setYear,
-        stage, setStage,
-        taskNumber, setTaskNumber
+        stage, setStage
     } = useContext(OlympContext);
 
     const values = ["2023", "2022", "2021", "2020", "2019", "2018"];

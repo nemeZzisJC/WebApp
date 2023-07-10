@@ -6,7 +6,7 @@ import { NormalText, Heading } from "../../components/fonts/style";
 import StyledList from "../../components/list/styledList.js";
 import StyledListItemButton from "../../components/list/styledListItemButton.js"
 import { useContext } from "react";
-import { OlympContext } from "../../App.js";
+import { OlympContext } from "../../context/index.js";
 import { useNavigate } from "react-router-dom";
 
 const ChooseOlympPage = () => {
@@ -17,9 +17,8 @@ const ChooseOlympPage = () => {
         olympName, setOlympName,
         grade, setGrade,
         year, setYear,
-        stage, setStage,
-        taskNumber, setTaskNumber
-    } = useContext(OlympContext)
+        stage, setStage
+    } = useContext(OlympContext);
 
     const handleClick = (value) => {
         setOlympName(value);

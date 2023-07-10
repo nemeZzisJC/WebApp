@@ -5,7 +5,7 @@ import { ChooseClassPageContainer } from "../chooseClassPage/style";
 import ClassCard from "../../components/card/classCard.js";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { OlympContext } from "../../App";
+import { OlympContext } from "../../context/index.js";
 
 const ChooseStagePage = () => {
 
@@ -13,8 +13,7 @@ const ChooseStagePage = () => {
         olympName, setOlympName,
         grade, setGrade,
         year, setYear,
-        stage, setStage,
-        taskNumber, setTaskNumber
+        stage, setStage
     } = useContext(OlympContext);
 
     const values = ["Отборочный этап", "Заключительный этап"];

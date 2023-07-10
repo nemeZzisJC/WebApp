@@ -10,7 +10,7 @@ import { ShortInfo, LogoDiv, StartButton, MainPageBody,
 } 
 from "./style.js";
 import { LogoName } from "../../components/logo/style.js"
-import { NormalTextMono, MonoHeading, NormalText } from "../../components/fonts/style.js";
+import { NormalTextMono, MonoHeading, NormalText, Heading } from "../../components/fonts/style.js";
 import { Link } from "react-router-dom";
 import MoneyRoundedIcon from '@mui/icons-material/MoneyRounded';
 import EmojiFlagsRoundedIcon from '@mui/icons-material/EmojiFlagsRounded';
@@ -40,8 +40,8 @@ const MainPage = () => {
                 <TextSectionTextContainer>
                     <NormalText>Олимпиадная математика тренирует ваш мозг. 
                         Вы учитесь строить логические цепочки, анализировать условие и извлекать из него полезную информацию. 
-                        Вы учитесь находить нестандартные решения нетривиальных задач, используя рациональное мышление, что 
-                        пригодится вам как на будущей работе, так и в обычной жизни
+                        Вы учитесь находить нестандартные решения нетривиальных задач, комбинируя творческое и рациональное мышление, что 
+                        пригодится вам как на будущей работе, так и в обычной жизни. К тому же, даже если вы не выиграете олимпиаду, вы получите глубокое понимание математики
                     </NormalText>
                 </TextSectionTextContainer>
             </TextSection>
@@ -80,7 +80,7 @@ const MainPage = () => {
                 </GridSectionQuestion>
                 <GridSectionFirst>
                     <MonoHeadingElements>1. Выберите олимпиады</MonoHeadingElements>
-                    <NormalTextMono>Воспользуйтесь разделом "Об олимпиадах" в меню, чтобы почитать о разных олимпадах. Выберите 2-3 штуки</NormalTextMono>
+                    <NormalTextMono>Воспользуйтесь разделом "Об олимпиадах" в меню, чтобы почитать о разных олимпадах. Выберите несколько</NormalTextMono>
                 </GridSectionFirst>
                 <GridSectionSecond>
                     <MonoHeadingElements>2. Посмотрите критерии</MonoHeadingElements>

@@ -55,16 +55,16 @@ export const StartButton = styled.button`
 // MAIN PAGE TEXT SECTION (QUESTION/ANSWER)
 export const TextSection = styled.div`
     width: 100%;
-    height: 50vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
     background-color: #F3F5F8;
 `
 
 export const TextSectionHeader = styled(PreInfoHeading)`
-    margin-top: 10vh;
     position: relative;
     display: inline-block;
 

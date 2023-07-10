@@ -10,8 +10,8 @@ import ChooseOlympPage from "./pages/chooseOlympPage";
 import ChooseYearPage from "./pages/chooseYearPage";
 import SolveTaskPage from "./pages/solveTaskPage";
 import ChooseStagePage from "./pages/chooseStagePage";
-
-export const OlympContext = createContext({});
+import AboutOlympPage from "./pages/aboutOlympPage";
+import { OlympContext } from "./context/index.js";
 
 const App = () => {
 
@@ -19,22 +19,19 @@ const App = () => {
   const [grade, setGrade] = useState('');
   const [year, setYear] = useState('');
   const [stage, setStage] = useState('');
-  const [taskNumber, setTaskNumber] = useState('');
 
   const OlympContextValue = {
     olympName, setOlympName,
     grade, setGrade,
     year, setYear,
-    stage, setStage,
-    taskNumber, setTaskNumber
+    stage, setStage
   };
 
   return (
     <>
       <BrowserRouter>
-        <Header/>
-
         <OlympContext.Provider value={OlympContextValue}>
+        <Header/>
         <Routes>
           <Route path='/' element={
             <MainPage/>
@@ -64,6 +61,9 @@ const App = () => {
           />
           <Route path="/chooseStage" element={
             <ChooseStagePage/>
+          }/>
+          <Route path='/aboutOlymp' id='aboutOlymp' element={
+            <AboutOlympPage/>
           }/>
         </Routes>
         </OlympContext.Provider>

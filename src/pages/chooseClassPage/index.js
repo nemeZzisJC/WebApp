@@ -3,7 +3,7 @@ import { Heading } from "../../components/fonts/style";
 import { ChooseClassPageContainer, ChoosePageBody } from "./style.js";
 import ClassCard from "../../components/card/classCard";
 import { useContext } from "react";
-import { OlympContext } from "../../App";
+import { OlympContext } from "../../context/index.js";
 import { useNavigate } from "react-router-dom";
 
 const ChooseClassPage = () => {
@@ -12,8 +12,7 @@ const ChooseClassPage = () => {
         olympName, setOlympName,
         grade, setGrade,
         year, setYear,
-        stage, setStage,
-        taskNumber, setTaskNumber
+        stage, setStage
     } = useContext(OlympContext);
 
     const navigate = useNavigate();
@@ -32,8 +31,8 @@ const ChooseClassPage = () => {
             <ChooseClassPageContainer>
 
                 {values.map((value, index) => (
-                    <ClassCard onClick={() => handleClick(value.toString())}>
-                        <Heading style={{fontSize: 100}}>
+                    <ClassCard key={`${value}_grade_ClassCard`} onClick={() => handleClick(value.toString())}>
+                        <Heading key={`${value}_grade_Heading`} style={{fontSize: 100}}>
                             {value}
                         </Heading>
                     </ClassCard>

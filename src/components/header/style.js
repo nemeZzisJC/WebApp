@@ -2,12 +2,12 @@ import styled from "styled-components"
 import { LogoStyled } from "../logo/style.js"
 
 export const MenuLogo = styled(LogoStyled)`
-    margin-left: 10px;
+    margin-left: 20px;
 `
 
 export const ContainerHeader = styled.div`
     position: fixed;
-    height: 60px;
+    height: 80px;
     top: 0;
     left: 0;
     width: 100vw;
