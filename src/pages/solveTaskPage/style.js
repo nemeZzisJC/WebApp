@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Back from "../mainPage/back2.jpg"
 import { NormalText } from "../../components/fonts/style"
+import { AuthSubmitButton } from "../registrationPage/style"
 
 export const SolveTaskBody = styled.div`
     width: 100%;
@@ -46,4 +47,17 @@ export const TaskHeading = styled(NormalText)`
     margin-right: 10vw;
     margin-bottom: 3vh;
     color: rgb(1, 161, 108);
+`
+
+export const AnswerInputField = styled.span`
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    margin-left: 10vw;
+    margin-top: 10vh;
+    margin-bottom: 3vh;
+`
+
+export const CheckOneButton = styled(AuthSubmitButton)`
+    padding: 15px 40px;
 `

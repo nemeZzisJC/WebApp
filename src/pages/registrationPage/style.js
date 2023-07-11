@@ -59,7 +59,7 @@ export const AuthLinkButton = styled.button`
     border: none;
     font-family: 'Montserrat';
     background: none;
-    padding: 20px;
+    padding: 25px;
     border-radius: 10px;
     text-decoration: underline;
     cursor: pointer;

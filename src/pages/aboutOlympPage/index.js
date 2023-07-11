@@ -7,6 +7,14 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import FlakyRoundedIcon from '@mui/icons-material/FlakyRounded';
 import WorkspacePremiumRoundedIcon from '@mui/icons-material/WorkspacePremiumRounded';
 import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
+import StackedLineChartRoundedIcon from '@mui/icons-material/StackedLineChartRounded';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+
 
 const displayAboutOlympPage = () => {
     let content = [];
@@ -142,6 +150,68 @@ const displayAboutOlympPage = () => {
                 </TextSectionContainer>
             )
         }
+
+        // displaying bounary scores for olymp
+        if (curComponent.id === 6) {
+            const boundaryScoresInfo = curComponent["boundaryScoresInfo"];
+            const boundaryTables = boundaryScoresInfo["tables"];
+            const boundaryText = boundaryScoresInfo["preTableText"];
+
+            // adding a table 
+            content.push(
+                <TextSectionContainer style={{paddingLeft: "5vw", paddingRight: "5vw", paddingTop: "10vh", backgroundColor: "rgb(200, 200, 200)"}}>
+                    <HeadingAndIcon>
+                        <StackedLineChartRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></StackedLineChartRoundedIcon><Heading>Граничные баллы</Heading>
+                    </HeadingAndIcon>
+
+                    {
+                        boundaryText.map((value) => (
+                            <TextSectionText>
+                                <NormalText>{value}</NormalText>
+                            </TextSectionText>
+                        ))
+                    }
+
+                </TextSectionContainer>
+            )
+            for (let i = 0; i < boundaryTables.length; i++) {
+                const rows = boundaryTables[i]["rowsData"];
+
+                content.push(
+                    <TextSectionContainer style={{padding: '10vh 5vw'}}>
+                    <Heading style={{marginBottom: '3vh'}}>{boundaryTables[i]["dataHeading"]}</Heading>
+                    <TableContainer>
+                        <Table>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell align="center">Год</TableCell>
+                                    <TableCell align="center">Призёр 3 степени</TableCell>
+                                    <TableCell align="center">Призёр 2 степени</TableCell>
+                                    <TableCell align="center">Призёр 1 степени</TableCell>
+                                    <TableCell align="center">Общее кол-во баллов</TableCell>
+                                </TableRow>
+                            </TableHead>
+
+                            <TableBody>
+                                {rows.map((row) => (
+                                    <TableRow
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                    <TableCell align="center">{row[0]}</TableCell>
+                                    <TableCell align="center">{row[1]}</TableCell>
+                                    <TableCell align="center">{row[2]}</TableCell>
+                                    <TableCell align="center">{row[3]}</TableCell>
+                                    <TableCell align="center">{row[4]}</TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                    </TextSectionContainer>
+                )
+            }
+        }
+        
     }
     return content;
 }

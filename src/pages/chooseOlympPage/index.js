@@ -32,7 +32,7 @@ const ChooseOlympPage = () => {
             <Heading style={{fontSize: "30px", marginTop: "8vh"}}>Выберите олимпиаду</Heading>
             <StyledList>
                 {values.map((value, index) => (
-                    <ListItem key={index} sx={{padding: "2px 4px"}}>
+                    <ListItem key={`ListItem_${index}`} sx={{padding: "2px 4px"}}>
                         <StyledListItemButton onClick={() => {handleClick(value)}}>
                         <ListItemText>
                             <NormalText style={{fontSize: "20px"}}>{value}</NormalText>

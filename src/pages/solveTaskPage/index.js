@@ -1,10 +1,11 @@
 import React from "react";
 import { Heading, NormalText } from "../../components/fonts/style";
-import { BackgroundImageFixed, SolveTaskBody, TaskBody, TaskImage, TaskBodyText, TaskHeading } from "./style";
-import { useState, useEffect } from "react";
+import { BackgroundImageFixed, SolveTaskBody, TaskBody, TaskImage, TaskBodyText, TaskHeading, AnswerInputField } from "./style";
+import { useState, useEffect, useRef } from "react";
 import Data from "../../data.json";
 import { useContext } from "react";
 import { OlympContext } from "../../context/index.js";
+import { CheckOneButton } from "./style";
 
 const SolveTaskPage = () => {
 
@@ -25,6 +26,10 @@ const SolveTaskPage = () => {
         }
     },[]);
 
+    const handleCheckOneClick = () => {
+        
+    }
+
     const displayTask = (task_number) => {
         let content = [];
         const placement = desiredTasks[task_number]["placement"];
@@ -33,6 +38,7 @@ const SolveTaskPage = () => {
         let j = 0;
 
         for (let i = 0; i < desiredTasks[task_number]["task"].length; ++i) {
+
             // adding the text
             content.push(<NormalText key={`${olympName}_${grade}_${year}_${stage}_${i}_paragraph`} style={{margin: '2vh 0'}}>{desiredTasks[task_number]["task"][i]}</NormalText>);
 
@@ -58,6 +64,14 @@ const SolveTaskPage = () => {
                 <TaskBody key={`${olympName}_${grade}_${year}_${stage}_${index}_TaskBody`}>
                     <TaskHeading key={`${olympName}_${grade}_${year}_${stage}_${index}_TaskHeading`}>Задание {index + 1}</TaskHeading>
                     <TaskBodyText key={`${olympName}_${grade}_${year}_${stage}_${index}_TaskBodyText`}>{displayTask(index)}</TaskBodyText>
+
+                    <AnswerInputField>
+                        <NormalText>Ответ :</NormalText><math-field style={{marginLeft: '1vw', minWidth: '10vw'}}></math-field>
+                    </AnswerInputField>
+
+                    <CheckOneButton style={{marginLeft: "10vw"}} id={`${olympName}_${grade}_${year}_${stage}_${index}_CheckOneButton`} onClick={handleCheckOneClick}>
+                        <NormalText style={{fontSize: 14}}>Проверить задачу</NormalText>
+                    </CheckOneButton>
 
                 </TaskBody>
             ))}
