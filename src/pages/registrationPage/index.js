@@ -8,6 +8,17 @@ const RegistrationPage = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(0);
+    const [users, setUsers] = useState(null);
+
+    useEffect(() => {
+        fetch("http://localhost:3001/users")
+            .then((res) => {
+                return (res.json());
+            })
+            .then((data) => {setUsers(data); console.log(data);})
+            .catch((err) => {console.error(err)})
+    }, [])
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -16,22 +27,40 @@ const RegistrationPage = () => {
             username: username,
             email: email,
             password: password,
+            isLoggedIn: isLoggedIn
         }
-        fetch('http://localhost:3001/users', {
+
+        if (!formData.username || !formData.email || !formData.password) {
+            alert("Все поля должны быть заполнены!")
+        } else {
+            for (let i = 0; i < users.length; ++i) {
+                if (formData['email'] === users[i]['email']) {
+                    alert("Пользователь с данной почтой уже существует!");
+                    return;
+                }
+                if (formData['username'] === users[i]['username']) {
+                    alert("Пользователь с данным именем уже существует!");
+                    return;
+                }
+            }
+            fetch('http://localhost:3001/users', {
             method: 'POST',
             headers: {'Content-Type': 'application/json',
             },
             body: JSON.stringify(formData),
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
 
-        navigation('/chooseOlymp');
+            alert('Вы успешно зарегистрировались!');
+
+            navigation('/login');
+        }
     };
 
     const handleUsernameChange = (event) => {

@@ -9,7 +9,6 @@ export const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [users, setUsers] = useState(null);
-    const [loginLink, setLoginLink] = useState('/login');
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -19,13 +18,11 @@ export const LoginPage = () => {
             if (email === users[i]['email']) {
                 console.log("The user is registered");
                 if (pass === users[i]["password"]) {
-                    setLoginLink('/tasks')
-                    console.log(`Info: base_${users[i]['email']}, mine_${email}, ${loginLink}`);
+
+                    console.log(`Info: base_${users[i]['email']}, mine_${email}`);
                     alert("Successfully logged in!");
-                    navigate('/tasks')
+                    navigate('/chooseOlymp')
                 } else {
-                    setLoginLink('/login')
-                    console.log(`Info: ${loginLink}`);
                     alert("Inccorect password!");
                 }
                 flag = true;
@@ -33,8 +30,6 @@ export const LoginPage = () => {
             }
         }
         if (!flag) {
-            setLoginLink('/login');
-            console.log(`Info: ${loginLink}`);
             alert("You are not registered!");
         }
     };
