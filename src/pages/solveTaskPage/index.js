@@ -1,13 +1,22 @@
 import React from "react";
 import { Heading, NormalText } from "../../components/fonts/style";
-import { BackgroundImageFixed, SolveTaskBody, TaskBody, TaskImage, TaskBodyText, TaskHeading, AnswerInputField } from "./style";
+import { BackgroundImageFixed, SolveTaskBody, TaskBody, TaskImage, TaskBodyText, TaskHeading, AnswerInputField, StyledCheckAllButton } from "./style";
 import { useState, useEffect } from "react";
 import Data from "../../data.json";
 import { useContext } from "react";
 import { OlympContext } from "../../context/index.js";
 import { CheckOneButton } from "./style";
+import { useSingleCheck } from "../../hooks/useSingleCheck.js";
 
 const SolveTaskPage = () => {
+
+    useEffect(()=>{
+        if(typeof window?.MathJax !== "undefined"){
+            window.MathJax.typesetClear();
+            window.MathJax.typeset();
+        }
+    },[]);
+
 
     const {
         olympName, setOlympName,
@@ -56,12 +65,33 @@ const SolveTaskPage = () => {
     console.log("USER ANSWERS");
     console.log(userAnswers);
 
-    useEffect(()=>{
-        if(typeof window?.MathJax !== "undefined"){
-            window.MathJax.typesetClear();
-            window.MathJax.typeset();
+    const HandleCheckOneButtonClick = (task_index) => {
+        const userAnswer = userAnswers[`userAnswer${task_index + 1}`];
+        const correctAnswers = desiredTasks[task_index]["answers"];
+
+        if (useSingleCheck(userAnswer, correctAnswers) === 1) {
+            console.log(`Задача ${task_index + 1} решена верно! Вы молодец!`);
+        } else {
+            console.log(`К сожалению, ответ на задачу ${task_index + 1} не верен. Не расстраивайтесь! У вас обязательно получится!`);
         }
-    },[]);
+    }
+
+    const HandleCheckAllButtonClick = (tasksLength) => {
+        let cnt = 0;
+        for (let task_index = 0; task_index < tasksLength; ++task_index) {
+            const userAnswer = userAnswers[`userAnswer${task_index + 1}`];
+            const correctAnswers = desiredTasks[task_index]["answers"];
+
+            for (let i = 0; i < correctAnswers.length; ++i) {
+                if (userAnswer === correctAnswers[i]) {
+                    cnt++;
+                    break;
+                }
+            }
+        }
+
+        console.log(`Правильно решено ${cnt} задач из ${tasksLength}`);
+    }
 
     const displayTask = (task_number) => {
         let content = [];
@@ -109,12 +139,13 @@ const SolveTaskPage = () => {
                     </AnswerInputField>
 
                     {/* Check this task button */}
-                    <CheckOneButton style={{marginLeft: "10vw"}} id={`useraAnswer${index}_button`} class='math_field_input'>
+                    <CheckOneButton id={`useraAnswer${index}_button`} onClick={() => (HandleCheckOneButtonClick(index))}>
                         <NormalText style={{fontSize: 14}}>Проверить задачу</NormalText>
                     </CheckOneButton>
 
                 </TaskBody>
             ))}
+        <StyledCheckAllButton onClick={() => (HandleCheckAllButtonClick(tasksLength))}><NormalText style={{fontSize: 23}}>Проверить ответы</NormalText></StyledCheckAllButton>
         </SolveTaskBody>
         </>
     );

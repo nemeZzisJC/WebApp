@@ -60,4 +60,11 @@ export const AnswerInputField = styled.span`
 
 export const CheckOneButton = styled(AuthSubmitButton)`
     padding: 15px 40px;
+    margin-left: 10vw;
+`
+
+export const StyledCheckAllButton = styled(AuthSubmitButton)`
+    padding: 15px 40px;
+    margin-bottom: 10vh;
+    color: ;
 `
