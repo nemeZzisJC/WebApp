@@ -7,7 +7,6 @@ const Menu = () => {
         <MenuContainer>
             <LinkItem>Личный кабинет</LinkItem>
             <LinkItem><MenuLink to='/aboutOlymp'>Об олимпиадах</MenuLink></LinkItem>
-            <LinkItem>Граничные баллы</LinkItem>
         </MenuContainer>         
     );
 };
