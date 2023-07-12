@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 export const MenuContainer = styled.div`
     display: flex;
     margin-right: 3vw;
+    align-items: center;
 `
 
 export const LinkItem = styled(NormalText)`

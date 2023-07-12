@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
@@ -11,14 +11,16 @@ import ChooseYearPage from "./pages/chooseYearPage";
 import SolveTaskPage from "./pages/solveTaskPage";
 import ChooseStagePage from "./pages/chooseStagePage";
 import AboutOlympPage from "./pages/aboutOlympPage";
-import { OlympContext } from "./context/index.js";
+import { OlympContext, isLoggedInContext } from "./context/index.js";
+import { usePersistentState } from "./hooks/usePersistentState.js";
 
 const App = () => {
 
-  const [olympName, setOlympName] = useState('');
-  const [grade, setGrade] = useState('');
-  const [year, setYear] = useState('');
-  const [stage, setStage] = useState('');
+  // OlympContext
+  const [olympName, setOlympName] = usePersistentState('olympName', '');
+  const [grade, setGrade] = usePersistentState('grade', '');
+  const [year, setYear] = usePersistentState('year', '');
+  const [stage, setStage] = usePersistentState('stage', '');
 
   const OlympContextValue = {
     olympName, setOlympName,
@@ -27,11 +29,20 @@ const App = () => {
     stage, setStage
   };
 
+  // isLoggedInContext
+  const [isLoggedIn, setIsLoggedIn] = usePersistentState("isLoggedIn", 0);
+
+  const IsLoggedInValue = {
+    isLoggedIn, setIsLoggedIn
+  };
+
   return (
     <>
       <BrowserRouter>
         <OlympContext.Provider value={OlympContextValue}>
+        <isLoggedInContext.Provider value={IsLoggedInValue}>
         <Header/>
+        </isLoggedInContext.Provider>
         <Routes>
           <Route path='/' element={
             <MainPage/>
@@ -43,7 +54,9 @@ const App = () => {
             <RegistrationPage/>
           }/>
           <Route path='/login' element={
-            <LoginPage/>
+            <isLoggedInContext.Provider value={IsLoggedInValue}>
+              <LoginPage/>
+            </isLoggedInContext.Provider>
           }/>
           <Route  path='/chooseOlymp' element={
             <ChooseOlympPage/>

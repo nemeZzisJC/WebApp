@@ -10,7 +10,7 @@ import { ShortInfo, LogoDiv, StartButton, MainPageBody,
 } 
 from "./style.js";
 import { LogoName } from "../../components/logo/style.js"
-import { NormalTextMono, MonoHeading, NormalText, Heading } from "../../components/fonts/style.js";
+import { NormalTextMono, MonoHeading, NormalText } from "../../components/fonts/style.js";
 import { Link } from "react-router-dom";
 import MoneyRoundedIcon from '@mui/icons-material/MoneyRounded';
 import EmojiFlagsRoundedIcon from '@mui/icons-material/EmojiFlagsRounded';
