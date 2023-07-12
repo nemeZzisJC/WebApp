@@ -26,7 +26,7 @@ const ChooseOlympPage = () => {
         navigate('/chooseYear');
     }
 
-    const values = ["Ломоносов", "Физтех", "ОММО", "Покори Воробъёвы Горы", "Высшая Проба", "МОШ", "Курчатов", "Росатом"]
+    const values = ["Ломоносов", "Физтех", "ОММО", "Покори Воробьёвы Горы", "Высшая Проба", "МОШ", "Курчатов", "Росатом"]
     return(
         <ChoosePageBody>
             <Heading style={{fontSize: "30px", marginTop: "8vh"}}>Выберите олимпиаду</Heading>

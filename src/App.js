@@ -11,8 +11,9 @@ import ChooseYearPage from "./pages/chooseYearPage";
 import SolveTaskPage from "./pages/solveTaskPage";
 import ChooseStagePage from "./pages/chooseStagePage";
 import AboutOlympPage from "./pages/aboutOlympPage";
-import { OlympContext, isLoggedInContext } from "./context/index.js";
+import { OlympContext, isLoggedInContext, aboutOlympNameContext} from "./context/index.js";
 import { usePersistentState } from "./hooks/usePersistentState.js";
+import PreAboutOlympInfoPage from "./pages/preAboutOlympPage";
 
 const App = () => {
 
@@ -36,6 +37,13 @@ const App = () => {
     isLoggedIn, setIsLoggedIn
   };
 
+  // aboutOlympNameContext
+  const [aboutOlympName, setAboutOlympName] = usePersistentState('aboutOlympName', '');
+
+  const AboutOlympNameValue = {
+    aboutOlympName, setAboutOlympName
+  };
+
   return (
     <>
       <BrowserRouter>
@@ -45,7 +53,9 @@ const App = () => {
         </isLoggedInContext.Provider>
         <Routes>
           <Route path='/' element={
+            <isLoggedInContext.Provider value={IsLoggedInValue}>
             <MainPage/>
+            </isLoggedInContext.Provider>
           }/>
           <Route path='/footer' element={
             <Footer/>
@@ -75,8 +85,15 @@ const App = () => {
           <Route path="/chooseStage" element={
             <ChooseStagePage/>
           }/>
-          <Route path='/aboutOlymp' id='aboutOlymp' element={
-            <AboutOlympPage/>
+          <Route path='/preAboutOlymp' element={
+            <aboutOlympNameContext.Provider value={AboutOlympNameValue}>
+              <PreAboutOlympInfoPage/>
+            </aboutOlympNameContext.Provider>
+          }/>
+          <Route path='/aboutOlymp' element={
+            <aboutOlympNameContext.Provider value={AboutOlympNameValue}>
+              <AboutOlympPage/>
+            </aboutOlympNameContext.Provider>
           }/>
         </Routes>
         </OlympContext.Provider>

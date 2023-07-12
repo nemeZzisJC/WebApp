@@ -14,11 +14,13 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { useContext } from "react";
+import { aboutOlympNameContext } from "../../context/index.js";
 
 
-const displayAboutOlympPage = () => {
+const displayAboutOlympPage = (olName) => {
     let content = [];
-    const olympName = "Физтех";
+    const olympName = olName;
     const olympComponents = olympData[olympName];
 
     console.log(olympComponents);
@@ -217,9 +219,14 @@ const displayAboutOlympPage = () => {
 }
 
 const AboutOlympPage = () => {
+
+    const {
+        aboutOlympName, setAboutOlympName
+    } = useContext(aboutOlympNameContext); 
+
     return(
         <AboutOlympPageBody>
-            {displayAboutOlympPage()}
+            {displayAboutOlympPage(aboutOlympName)}
         </AboutOlympPageBody>
     );
 }

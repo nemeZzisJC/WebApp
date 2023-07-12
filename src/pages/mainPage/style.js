@@ -50,6 +50,8 @@ export const StartButton = styled.button`
     border: none;
     box-shadow: 0px 3.5px rgb(1, 161, 108);
     border-radius: 10px 10px 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
 `
 
 // MAIN PAGE TEXT SECTION (QUESTION/ANSWER)

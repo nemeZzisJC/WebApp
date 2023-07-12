@@ -11,14 +11,32 @@ import { ShortInfo, LogoDiv, StartButton, MainPageBody,
 from "./style.js";
 import { LogoName } from "../../components/logo/style.js"
 import { NormalTextMono, MonoHeading, NormalText } from "../../components/fonts/style.js";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MoneyRoundedIcon from '@mui/icons-material/MoneyRounded';
 import EmojiFlagsRoundedIcon from '@mui/icons-material/EmojiFlagsRounded';
 import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import { useContext } from "react";
+import { isLoggedInContext } from "../../context/index.js";
+import Footer from "../../components/footer/index.js";
 
 
 const MainPage = () => {
+
+    const navigate = useNavigate();
+
+    const {
+        isLoggedIn, setIsLoggedIn
+      } = useContext(isLoggedInContext);
+
+    const HandleStartButtonClick = () => {
+        console.log('isLoggedIn inside mainPage:', isLoggedIn);
+        if (isLoggedIn === 1) {
+            navigate('/chooseOlymp');
+        } else {
+            navigate('/login');
+        }
+    }
 
     return (
         <MainPageBody>
@@ -31,7 +49,7 @@ const MainPage = () => {
                         </LogoName>
                     </LogoDiv>
                     <MainPageNormalText>Готовься к олимпиадам по математике, получай 100 баллов на ЕГЭ или даже БВИ!</MainPageNormalText>
-                    <Link to='/login'><StartButton><NormalText style={{color: 'black', fontWeight: 600}}>Начать учиться</NormalText></StartButton></Link>
+                    <StartButton onClick={HandleStartButtonClick}><NormalText style={{color: 'black', fontWeight: 600}}>Начать учиться</NormalText></StartButton>
                 </ShortInfo>
             </MainPageGetStarted>
 
@@ -95,6 +113,8 @@ const MainPage = () => {
                     <NormalTextMono>Следите за ходом мыслей. Как вы дошли до решения? Как могли бы дойти (если не решили)?</NormalTextMono>
                 </GridSectionFourth>
             </GridSection>
+
+            <Footer/>
 
         </MainPageBody>
     );

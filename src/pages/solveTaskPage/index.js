@@ -70,9 +70,9 @@ const SolveTaskPage = () => {
         const correctAnswers = desiredTasks[task_index]["answers"];
 
         if (useSingleCheck(userAnswer, correctAnswers) === 1) {
-            console.log(`Задача ${task_index + 1} решена верно! Вы молодец!`);
+            alert(`Задача ${task_index + 1} решена верно! Вы молодец!`);
         } else {
-            console.log(`К сожалению, ответ на задачу ${task_index + 1} не верен. Не расстраивайтесь! У вас обязательно получится!`);
+            alert(`К сожалению, ответ на задачу ${task_index + 1} не верен. Не расстраивайтесь! У вас обязательно получится!`);
         }
     }
 
@@ -90,7 +90,7 @@ const SolveTaskPage = () => {
             }
         }
 
-        console.log(`Правильно решено ${cnt} задач из ${tasksLength}`);
+        alert(`Правильно решено ${cnt} задач из ${tasksLength}`);
     }
 
     const displayTask = (task_number) => {
