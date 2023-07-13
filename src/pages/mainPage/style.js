@@ -139,6 +139,7 @@ export const OptionSectionItem = styled.div`
 export const OptionSectionItemText = styled(NormalText)`
     margin: 25px 60px 0px;
     line-height: 1.65;
+    font-weight: 700;
 `
 
 // GRID SECTION
