@@ -7,6 +7,8 @@ import { useContext } from "react";
 import { OlympContext } from "../../context/index.js";
 import { CheckOneButton } from "./style";
 import { useSingleCheck } from "../../hooks/useSingleCheck.js";
+import Header from "../../components/header";
+
 
 const SolveTaskPage = () => {
 
@@ -120,9 +122,10 @@ const SolveTaskPage = () => {
 
     return(
         <>
+        <Header/>
         <BackgroundImageFixed></BackgroundImageFixed>
         <SolveTaskBody>
-            <Heading style={{textAlign: 'center', width: '60%', marginTop: '10vh'}}>{olympName}, {grade} класс, {year} год, заключительный этап</Heading>
+            <Heading style={{textAlign: 'center', width: '60%', marginTop: '15vh', color: 'white'}}>{olympName}, {grade} класс, {year} год, заключительный этап</Heading>
 
             {desiredTasks.map((value, index) => (
                 <TaskBody key={`${olympName}_${grade}_${year}_${stage}_${index}_TaskBody`}>
@@ -145,7 +148,7 @@ const SolveTaskPage = () => {
 
                 </TaskBody>
             ))}
-        <StyledCheckAllButton onClick={() => (HandleCheckAllButtonClick(tasksLength))}><NormalText style={{fontSize: 23}}>Проверить ответы</NormalText></StyledCheckAllButton>
+        <StyledCheckAllButton onClick={() => (HandleCheckAllButtonClick(tasksLength))}><NormalText>Проверить ответы</NormalText></StyledCheckAllButton>
         </SolveTaskBody>
         </>
     );

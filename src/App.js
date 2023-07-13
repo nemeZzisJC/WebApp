@@ -49,8 +49,6 @@ const App = () => {
       <BrowserRouter>
         <OlympContext.Provider value={OlympContextValue}>
         <isLoggedInContext.Provider value={IsLoggedInValue}>
-        <Header/>
-        </isLoggedInContext.Provider>
         <Routes>
           <Route path='/' element={
             <isLoggedInContext.Provider value={IsLoggedInValue}>
@@ -96,6 +94,7 @@ const App = () => {
             </aboutOlympNameContext.Provider>
           }/>
         </Routes>
+        </isLoggedInContext.Provider>
         </OlympContext.Provider>
 
       </BrowserRouter>

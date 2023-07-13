@@ -6,6 +6,7 @@ import ClassCard from "../../components/card/classCard.js";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { OlympContext } from "../../context/index.js";
+import Header from "../../components/header";
 
 const ChooseStagePage = () => {
 
@@ -27,7 +28,8 @@ const ChooseStagePage = () => {
 
     return(
         <ChoosePageBody>
-            <Heading style={{marginBottom: '5vh'}}>Выберите этап олимпиады</Heading>
+            <Header/>
+            <Heading style={{marginBottom: '5vh', color: "white"}}>Выберите этап олимпиады</Heading>
             <ChooseClassPageContainer>
                 {values.map((value, index) => (
                     <ClassCard sx={{width: '30%'}} onClick={() => handleClick(value.toLowerCase())} key={index}>

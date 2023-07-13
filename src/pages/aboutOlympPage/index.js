@@ -39,7 +39,7 @@ const displayAboutOlympPage = (olName) => {
                         <AboutInfoImage src={aboutInfo["aboutInfoImage"]} style={{width: `${imageWidth}`}}/>
                     </AboutInfoHeadingImage>
                     <AboutInfoTextContainer>
-                        <NormalText>{aboutInfo["aboutInfoText"]}</NormalText>
+                        <NormalText style={{fontSize: 18}}>{aboutInfo["aboutInfoText"]}</NormalText>
                     </AboutInfoTextContainer>
                 </AboutInfoContainer>
             )
@@ -52,17 +52,17 @@ const displayAboutOlympPage = (olName) => {
             const regText = registrationInfo["registrationText"];
             const regLinkText = `${olympName} регистрация`;
             content.push(
-                <TextSectionContainer style={{backgroundColor: "silver"}}>
+                <TextSectionContainer style={{backgroundColor: "#1A2529"}}>
                     <HeadingAndIcon>
-                        <AccountCircleRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></AccountCircleRoundedIcon><Heading>Регистрация</Heading>
+                        <AccountCircleRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></AccountCircleRoundedIcon><Heading style={{color: "rgb(1, 161, 108)"}}>Регистрация</Heading>
                     </HeadingAndIcon>
 
                     <TextSectionText>
-                        <NormalText>{regText}</NormalText>
+                        <NormalText style={{color: 'white'}}>{regText}</NormalText>
                     </TextSectionText>
 
                     <TextSectionText>
-                        <PreLinkText>Ссылка на регистрацию: <TextSectionLink href={regLink}>{regLinkText}</TextSectionLink></PreLinkText>
+                        <PreLinkText style={{color: 'white'}}>Ссылка на регистрацию: <TextSectionLink href={regLink}>{regLinkText}</TextSectionLink></PreLinkText>
                     </TextSectionText>
                 </TextSectionContainer>
             )
@@ -85,19 +85,19 @@ const displayAboutOlympPage = (olName) => {
             console.log(`hasList: ${hasList}`)
 
             content.push(
-                <TextSectionContainer style={{backgroundColor: "lightGray"}}>
+                <TextSectionContainer style={{backgroundColor: "#263237"}}>
                     <HeadingAndIcon>
-                        <FlakyRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></FlakyRoundedIcon><Heading>Отоборочный этап</Heading>
+                        <FlakyRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></FlakyRoundedIcon><Heading style={{color: 'rgb(1, 161, 108)'}}>Отоборочный этап</Heading>
                     </HeadingAndIcon>
 
                     <TextSectionText>
-                        <NormalText>{qualText}</NormalText>
+                        <NormalText style={{color: "white"}}>{qualText}</NormalText>
                     </TextSectionText>
                     
                     {hasList ? 
                     <TextSectionInnerList>
                     {itemsList.map((value, index) => (
-                        <NormalText>{index + 1}. {value}</NormalText>
+                        <NormalText style={{color: "white"}}>{index + 1}. {value}</NormalText>
                         ))}
                     </TextSectionInnerList>: null }
 
@@ -111,13 +111,13 @@ const displayAboutOlympPage = (olName) => {
             const finalText = finalInfo["finalInfoText"];
             const finalAttention = finalInfo["finalInfoAttention"];
             content.push(
-                <TextSectionContainer style={{backgroundColor: "silver"}}>
+                <TextSectionContainer style={{backgroundColor: "#1A2529"}}>
                     <HeadingAndIcon>
-                        <WorkspacePremiumRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></WorkspacePremiumRoundedIcon><Heading>Заключительный этап</Heading>
+                        <WorkspacePremiumRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></WorkspacePremiumRoundedIcon><Heading style={{color: "rgb(1, 161, 108)"}}>Заключительный этап</Heading>
                     </HeadingAndIcon>
 
                     <TextSectionText>
-                        <NormalText>{finalText}</NormalText>
+                        <NormalText style={{color: "white"}}>{finalText}</NormalText>
                     </TextSectionText>
 
                     <TextSectionText>
@@ -135,16 +135,16 @@ const displayAboutOlympPage = (olName) => {
             const linkItems = materialInfo["preparationLinkItems"];
 
             content.push(
-                <TextSectionContainer style={{backgroundColor: "lightGray"}}>
+                <TextSectionContainer style={{backgroundColor: "#263237"}}>
                     <HeadingAndIcon>
-                        <MenuBookRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></MenuBookRoundedIcon><Heading>Материалы для подготовки</Heading>
+                        <MenuBookRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></MenuBookRoundedIcon><Heading style={{color: "rgb(1, 161, 108)"}}>Материалы для подготовки</Heading>
                     </HeadingAndIcon>
                     
                     {
                         textItems.map((value, index) => (
                             <TextSectionText>
                                 <NormalText style={{marginBottom: "3vh"}}><TextSectionLink href={linkItems[index]}>{index + 1}. {value[0]}</TextSectionLink></NormalText>
-                                <NormalText style={{marginLeft: "2vw"}}>{value[1]}</NormalText>
+                                <NormalText style={{marginLeft: "2vw", color: "white"}}>{value[1]}</NormalText>
                             </TextSectionText>
                         ))
                     }
@@ -161,15 +161,15 @@ const displayAboutOlympPage = (olName) => {
 
             // adding a table 
             content.push(
-                <TextSectionContainer style={{paddingLeft: "5vw", paddingRight: "5vw", paddingTop: "10vh", backgroundColor: "rgb(200, 200, 200)"}}>
+                <TextSectionContainer style={{paddingLeft: "5vw", paddingRight: "5vw", paddingTop: "10vh", backgroundColor: "#1A2529"}}>
                     <HeadingAndIcon>
-                        <StackedLineChartRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></StackedLineChartRoundedIcon><Heading>Граничные баллы</Heading>
+                        <StackedLineChartRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></StackedLineChartRoundedIcon><Heading style={{color: "rgb(1, 161, 108)"}}>Граничные баллы</Heading>
                     </HeadingAndIcon>
 
                     {
                         boundaryText.map((value) => (
                             <TextSectionText>
-                                <NormalText>{value}</NormalText>
+                                <NormalText style={{color: "white"}}>{value}</NormalText>
                             </TextSectionText>
                         ))
                     }

@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { Heading } from "../../components/fonts/style"
-import Back from "../mainPage/back2.jpg"
+import { BoldHeading, Heading } from "../../components/fonts/style"
+import Back from "../mainPage/back4.png"
 
 
 // INFO ABOUT OLYMP SECTION
@@ -15,8 +15,8 @@ export const AboutInfoContainer = styled.div`
 `
 
 export const AboutInfoHeadingImage = styled.div`
-    margin-top: 10vh;
-    margin-left: 4vw;
+    margin-top: 13vh;
+    margin-left: 5vw;
     width: fit-content;
     display: inline-block;
 `
@@ -27,10 +27,12 @@ export const AboutInfoImage = styled.img`
     height: auto;
 `
 
-export const AboutInfoHeading = styled(Heading)`
+export const AboutInfoHeading = styled(BoldHeading)`
     display: block;
     margin-bottom: 4vh;
-    font-size: 55px;
+    font-size: 6rem;
+    font-weight: 600;
+    color: black;
 `
 
 export const AboutInfoTextContainer = styled.div`

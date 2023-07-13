@@ -8,6 +8,7 @@ import StyledListItemButton from "../../components/list/styledListItemButton.js"
 import { useContext } from "react";
 import { OlympContext } from "../../context/index.js";
 import { useNavigate } from "react-router-dom";
+import Header from "../../components/header";
 
 const ChooseOlympPage = () => {
 
@@ -29,7 +30,8 @@ const ChooseOlympPage = () => {
     const values = ["Ломоносов", "Физтех", "ОММО", "Покори Воробьёвы Горы", "Высшая Проба", "МОШ", "Курчатов", "Росатом"]
     return(
         <ChoosePageBody>
-            <Heading style={{fontSize: "30px", marginTop: "8vh"}}>Выберите олимпиаду</Heading>
+            <Header/>
+            <Heading style={{fontSize: "30px", color: 'white', marginTop: "15vh"}}>Выберите олимпиаду</Heading>
             <StyledList>
                 {values.map((value, index) => (
                     <ListItem key={`ListItem_${index}`} sx={{padding: "2px 4px"}}>

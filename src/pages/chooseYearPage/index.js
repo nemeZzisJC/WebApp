@@ -8,6 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { useContext } from "react";
 import { OlympContext } from "../../context/index.js";
 import { useNavigate } from "react-router-dom";
+import Header from "../../components/header/index.js";
 
 const ChooseYearPage = () => {
 
@@ -29,7 +30,8 @@ const ChooseYearPage = () => {
 
     return(
         <ChoosePageBody>
-            <Heading style={{fontSize: "30px", marginTop: "8vh"}}>Выберите год олимпиады</Heading>
+            <Header/>
+            <Heading style={{fontSize: "30px", marginTop: "20vh", color: "white"}}>Выберите год олимпиады</Heading>
             <StyledList>
                 {values.map((value, index) => (
                     <ListItem key={index} sx={{padding: "2px 4px"}}>

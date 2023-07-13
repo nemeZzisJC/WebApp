@@ -31,5 +31,5 @@ export const TextSectionInnerList = styled.div`
 `
 
 export const AttentionText = styled(NormalText)`
-    color: #B9202E;
+    color: #FF6A6A;
 `

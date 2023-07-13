@@ -6,11 +6,11 @@ import { ShortInfo, LogoDiv, StartButton, MainPageBody,
     OptionSectionWithHeading,
     OptionSectionHeading,
     GridSection, GridSectionQuestion, GridSectionFirst, GridSectionSecond, 
-    GridSectionThird, GridSectionFourth, MonoHeadingElements
+    GridSectionThird, GridSectionFourth, GridElementsHeading, MainHeadingDiv, HeadingPartDiv, GetStartedTextSection, GetStartedImageSection, GetStartedTextDiv, GetStartedTextStyle, GetStartedButton
 } 
 from "./style.js";
 import { LogoName } from "../../components/logo/style.js"
-import { NormalTextMono, MonoHeading, NormalText } from "../../components/fonts/style.js";
+import { BoldHeading, GridNormalText, GridSectionMainHeading, NormalText, PoppinsNormalText, PoppinsUpperCase } from "../../components/fonts/style.js";
 import { Link, useNavigate } from "react-router-dom";
 import MoneyRoundedIcon from '@mui/icons-material/MoneyRounded';
 import EmojiFlagsRoundedIcon from '@mui/icons-material/EmojiFlagsRounded';
@@ -19,6 +19,7 @@ import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import { useContext } from "react";
 import { isLoggedInContext } from "../../context/index.js";
 import Footer from "../../components/footer/index.js";
+import Header from "../../components/header/index.js";
 
 
 const MainPage = () => {
@@ -40,17 +41,29 @@ const MainPage = () => {
 
     return (
         <MainPageBody>
+            <Header/>
             <MainPageGetStarted>
-                <ShortInfo>
-                    <LogoDiv>
-                        <LogoName>
-                            <MainPageLogoStyled></MainPageLogoStyled>
-                            MathOlymp
-                        </LogoName>
-                    </LogoDiv>
-                    <MainPageNormalText>Готовься к олимпиадам по математике, получай 100 баллов на ЕГЭ или даже БВИ!</MainPageNormalText>
-                    <StartButton onClick={HandleStartButtonClick}><NormalText style={{color: 'black', fontWeight: 600}}>Начать учиться</NormalText></StartButton>
-                </ShortInfo>
+                <GetStartedTextSection>
+                <MainHeadingDiv>
+                    <HeadingPartDiv style={{justifyContent: 'left'}}>
+                        <BoldHeading>Math</BoldHeading>
+                    </HeadingPartDiv>
+                    <HeadingPartDiv style={{justifyContent: 'right'}}>
+                        <BoldHeading>Olymp</BoldHeading>
+                    </HeadingPartDiv>
+                </MainHeadingDiv>
+
+                <GetStartedTextDiv>
+                    <GetStartedTextStyle>Готовься к олмпиадам по математике, получай 100 баллов на ЕГЭ или даже БВИ!</GetStartedTextStyle>
+                </GetStartedTextDiv>
+
+                <GetStartedButton onClick={HandleStartButtonClick}>
+                    Начать учиться
+                </GetStartedButton>
+                </GetStartedTextSection>
+
+                <GetStartedImageSection src="https://mathsolymp.my.canva.site/company-website-business-website-in-violet-dark-blue-neon-pink-gradient-tech-style/images/b20a719a1bcd3cb1ff0ad4286cf9fb5e.svg"></GetStartedImageSection>
+
             </MainPageGetStarted>
 
             <TextSection>
@@ -68,21 +81,21 @@ const MainPage = () => {
                 <OptionSectionHeading>Бонусы олимпиадной математики</OptionSectionHeading>
                 <OptionSection>
                     <OptionSectionItem>
-                        <MoneyRoundedIcon sx={{color: '#01A16C', fontSize: 50}}></MoneyRoundedIcon>
+                        <MoneyRoundedIcon sx={{color: '#23AF7B', fontSize: 50}}></MoneyRoundedIcon>
                         <OptionSectionItemText>
                             Получите 100 баллов, став призёром/победителем перечневой олимпиады и не волнуйтесь на ЕГЭ!
                         </OptionSectionItemText>
                     </OptionSectionItem>
 
                     <OptionSectionItem>
-                        <EmojiFlagsRoundedIcon sx={{color: '#01A16C', fontSize: 50}}></EmojiFlagsRoundedIcon>
+                        <EmojiFlagsRoundedIcon sx={{color: '#23AF7B', fontSize: 50}}></EmojiFlagsRoundedIcon>
                         <OptionSectionItemText>
                             Регулярно решайте олимпиадные задачи и поступите в ВУЗ мечты без вступительных испытаний!
                         </OptionSectionItemText>
                     </OptionSectionItem>
 
                     <OptionSectionItem>
-                        <SchoolRoundedIcon sx={{color: '#01A16C', fontSize: 50}}></SchoolRoundedIcon>
+                        <SchoolRoundedIcon sx={{color: '#23AF7B', fontSize: 50}}></SchoolRoundedIcon>
                         <OptionSectionItemText>
                             Получайте знания! Решая олимпиадные задачи, вы развиваете творческое, логическое и аналитеское мышление
                         </OptionSectionItemText>
@@ -92,25 +105,25 @@ const MainPage = () => {
 
             <GridSection>
                 <GridSectionQuestion>
-                    <MonoHeading>Как подготовиться к олимпиадам?</MonoHeading>
-                    <DoubleArrowIcon sx={{color:"#01A16C", fontSize: '80px', marginLeft: '8%'}}></DoubleArrowIcon>
-                    <NormalTextMono>Как пользоваться MathOlymp для подготовки к олимпиадам</NormalTextMono>
+                    <GridSectionMainHeading>Как подготовиться к олимпиадам?</GridSectionMainHeading>
+                    <DoubleArrowIcon sx={{color:"#23AF7B", fontSize: '80px', marginLeft: '8%'}}></DoubleArrowIcon>
+                    <GridNormalText style={{color: 'white'}}>Как пользоваться MathOlymp для подготовки к олимпиадам</GridNormalText>
                 </GridSectionQuestion>
                 <GridSectionFirst>
-                    <MonoHeadingElements>1. Выберите олимпиады</MonoHeadingElements>
-                    <NormalTextMono>Воспользуйтесь разделом "Об олимпиадах" в меню, чтобы почитать о разных олимпадах. Выберите несколько</NormalTextMono>
+                    <GridElementsHeading>1. Выберите олимпиады</GridElementsHeading>
+                    <GridNormalText>Воспользуйтесь разделом "Об олимпиадах" в меню, чтобы почитать о разных олимпадах. Выберите несколько</GridNormalText>
                 </GridSectionFirst>
                 <GridSectionSecond>
-                    <MonoHeadingElements>2. Посмотрите критерии</MonoHeadingElements>
-                    <NormalTextMono>Узнайте критерии определения призёра/победителя прошлых лет. Посмотрите на кол-во задач и время</NormalTextMono>
+                    <GridElementsHeading>2. Посмотрите критерии</GridElementsHeading>
+                    <GridNormalText>Узнайте критерии определения призёра/победителя прошлых лет. Посмотрите на кол-во задач и время</GridNormalText>
                 </GridSectionSecond>
                 <GridSectionThird>
-                    <MonoHeadingElements>3. Решайте задачи</MonoHeadingElements>
-                    <NormalTextMono>Выберите нужную олимпиаду. Решайте задания прошлых лет. Смотрите подсказки. Следите за временем</NormalTextMono>
+                    <GridElementsHeading>3. Решайте задачи</GridElementsHeading>
+                    <GridNormalText>Выберите нужную олимпиаду. Решайте задания прошлых лет. Смотрите подсказки. Следите за временем</GridNormalText>
                 </GridSectionThird>
                 <GridSectionFourth>
-                    <MonoHeadingElements>4. Разбор полётов</MonoHeadingElements>
-                    <NormalTextMono>Следите за ходом мыслей. Как вы дошли до решения? Как могли бы дойти (если не решили)?</NormalTextMono>
+                    <GridElementsHeading>4. Разбор полётов</GridElementsHeading>
+                    <GridNormalText>Следите за ходом мыслей. Как вы дошли до решения? Как могли бы дойти (если не решили)?</GridNormalText>
                 </GridSectionFourth>
             </GridSection>
 

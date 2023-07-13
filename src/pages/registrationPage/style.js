@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Back from '../mainPage/back2.jpg'
+import Back from '../mainPage/back4.png'
 
 export const AuthPageBody = styled.div`
     text-align: center;
@@ -30,6 +30,7 @@ export const AuthLabel = styled.label`
     padding: 4px 0px;
     font-family: 'Montserrat';
     font-weight: 700;
+    font-size: 17;
 `
 
 export const AuthInput = styled.input`
@@ -44,20 +45,32 @@ export const AuthInput = styled.input`
 `
 
 export const AuthSubmitButton = styled.button`
-    border: none;
-    font-family: 'Montserrat';
-    font-weight: 600;
-    background-color: #02cc88;
+    padding: 1rem 3rem;
+    border: 2px solid black;
+    border-radius: 30px;
+    background-color: black;
     margin-top: 30px;
-    padding: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0px 3.5px rgb(1, 161, 108);
+    
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.6;
+    text-transform: uppercase;
+    color: white;
+
+    transition: color 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
 `
 
 export const AuthLinkButton = styled.button`
     border: none;
     font-family: 'Montserrat';
+    font-weight: 600;
     background: none;
     padding: 25px;
     border-radius: 10px;

@@ -1,13 +1,13 @@
 import styled from "styled-components"
 import { LogoStyled } from "../../components/logo/style"
-import { MonoHeading, NormalText, PreInfoHeading } from "../../components/fonts/style"
-import Back from "./back2.jpg"
+import { GridSectionMainHeading, NormalText, PoppinsNormalText, PreInfoHeading, BoldHeading } from "../../components/fonts/style"
+import Back from "./back4.png"
 
 export const MainPageBody = styled.div`
     width: 100%;
 `
 
-// MAIN PAGE GET STARTED
+// NEW MAIN PAGE GET STARTED
 export const MainPageGetStarted = styled.div`
     height: 100vh;
     width: 100%;
@@ -15,43 +15,66 @@ export const MainPageGetStarted = styled.div`
     background-repeat: no-repeat;
     background-image: url(${Back});
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    text-align: center;
     align-items: center;
 `
 
-export const ShortInfo = styled.div`
+export const GetStartedTextSection = styled.div`
+    margin-top: 18vh;
+    width: 42%;
+    height: 70vh;
+    display: inline-block;
+`
+
+export const GetStartedImageSection = styled.img`
+    margin-top: 15vh;
+    margin-left: 10%;
+    display: inline-block;
+    width: 32%;
+    height: auto;
+`
+
+export const MainHeadingDiv = styled.div`
+    width: 100%;
+`
+
+export const HeadingPartDiv = styled.div`
     display: flex;
-    flex-direction: column;
+    margin: 0;
+    padding: 0;
 `
 
-export const LogoDiv = styled.div`
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
+export const GetStartedTextDiv = styled.div`
+    width: 100%;
+    margin-top: 5vh;
 `
 
-export const MainPageLogoStyled = styled(LogoStyled)`
-    margin-right: 5px;
-    width: 50px;
-    height: 50px;
-`
-
-export const MainPageNormalText = styled(NormalText)`
+export const GetStartedTextStyle = styled(PoppinsNormalText)`
+    font-size: 1.3rem;
     font-weight: 600;
 `
 
-export const StartButton = styled.button`
-    margin-top: 25px;
-    width: 12rem;
-    height: 3rem;
-    background-color: #02cc88;
-    border: none;
-    box-shadow: 0px 3.5px rgb(1, 161, 108);
-    border-radius: 10px 10px 10px 10px;
-    margin-left: auto;
-    margin-right: auto;
+export const GetStartedButton = styled.button`
+    padding: 1rem 3rem;
+    border: 2px solid white;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 5vh;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.6;
+    text-transform: uppercase;
+    color: white;
+
+    transition: color 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+    }
 `
 
 // MAIN PAGE TEXT SECTION (QUESTION/ANSWER)
@@ -63,28 +86,15 @@ export const TextSection = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #F3F5F8;
 `
 
-export const TextSectionHeader = styled(PreInfoHeading)`
-    position: relative;
-    display: inline-block;
-
-    &:after {
-        content: "";
-        position: absolute;
-        display: block;
-        top: 100%;
-        left: 25%;
-        width: 50%;
-        height: 0.5px;
-        background-color: black;
-        margin-top: 20px;
-    }
+export const TextSectionHeader = styled(BoldHeading)`
+    color: #20CD8D;
+    font-size: 2rem;
 `
 
 export const TextSectionTextContainer = styled(PreInfoHeading)`
-    width: 40%;
+    width: 45%;
     height: fit-content;
     margin-top: 7vh;
 `
@@ -96,11 +106,13 @@ export const OptionSectionWithHeading = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 90vh;
+    background-color: #20CD8D;
 `
 
-export const OptionSectionHeading = styled(PreInfoHeading)`
-    margin-bottom: 40px;
+export const OptionSectionHeading = styled(TextSectionHeader)`
+    margin-bottom: 70px;
+    color: white;
 `
 
 export const OptionSection = styled.div`
@@ -146,7 +158,7 @@ export const GridSectionQuestion = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #F3F5F8;
+    background-color: #172627;
 `
 
 export const GridSectionFirst = styled.div`
@@ -158,7 +170,7 @@ export const GridSectionFirst = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #e8e9ea;
+    background-color: #B0FFE2;
 `
 
 export const GridSectionSecond = styled.div`
@@ -170,7 +182,7 @@ export const GridSectionSecond = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #e0e1e2;
+    background-color: #82FFCB;
 `
 
 export const GridSectionThird = styled.div`
@@ -182,7 +194,7 @@ export const GridSectionThird = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #e0e0e0;
+    background-color: #1DCD8D;
 `
 
 export const GridSectionFourth = styled.div`
@@ -194,8 +206,9 @@ export const GridSectionFourth = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #d1d1d1;
+    background-color: #23AF7B;
 `
-export const MonoHeadingElements = styled(MonoHeading)`
+export const GridElementsHeading = styled(GridSectionMainHeading)`
     margin-bottom: 25px;
+    color: #172627;
 `

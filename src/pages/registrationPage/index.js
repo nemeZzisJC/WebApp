@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthPageBody, AuthFormContainer, RegisterForm, AuthLabel, AuthInput, AuthLinkButton, AuthSubmitButton, AuthHeading } from "./style";
+import Header from "../../components/header";
 
 const RegistrationPage = () => {
 
@@ -81,6 +82,7 @@ const RegistrationPage = () => {
 
     return(
         <AuthPageBody>
+            <Header/>
             <AuthFormContainer>
                 <AuthHeading>Register</AuthHeading>
                 <RegisterForm onSubmit={handleSubmit}>

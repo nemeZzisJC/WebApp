@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthFormContainer, AuthInput, AuthLabel, AuthLinkButton, AuthPageBody, AuthSubmitButton, AuthHeading } from "../registrationPage/style";
 import { LoginForm } from "./style";
 import { isLoggedInContext } from "../../context/index.js";
+import Header from "../../components/header";
 
 export const LoginPage = () => {
 
@@ -96,6 +97,7 @@ export const LoginPage = () => {
 
     return(
         <AuthPageBody>
+            <Header/>
             <AuthFormContainer>
                 <AuthHeading>Login</AuthHeading>
                 <LoginForm onSubmit={handleSubmit}>

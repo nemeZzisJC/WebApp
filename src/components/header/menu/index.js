@@ -26,7 +26,7 @@ const Menu = () => {
             <LinkItem>Личный кабинет</LinkItem>
             <LinkItem><MenuLink to='/preAboutOlymp'>Об олимпиадах</MenuLink></LinkItem>
             {isLoggedIn === 1 ? (<LinkItem><MenuLink to='/chooseOlymp'>Задачи</MenuLink></LinkItem>) : (null)}
-            {isLoggedIn === 1 ? <IconButton sx={{color: 'black'}} onClick={handleLogoutButton}><LogoutRoundedIcon></LogoutRoundedIcon></IconButton> : (null)}
+            {isLoggedIn === 1 ? <IconButton sx={{color: 'white'}} onClick={handleLogoutButton}><LogoutRoundedIcon></LogoutRoundedIcon></IconButton> : (null)}
         </MenuContainer>         
     );
 };

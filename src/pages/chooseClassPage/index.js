@@ -5,6 +5,7 @@ import ClassCard from "../../components/card/classCard";
 import { useContext } from "react";
 import { OlympContext } from "../../context/index.js";
 import { useNavigate } from "react-router-dom";
+import Header from "../../components/header";
 
 const ChooseClassPage = () => {
 
@@ -27,7 +28,8 @@ const ChooseClassPage = () => {
 
     return (
         <ChoosePageBody>
-            <Heading>Выберите класс</Heading>
+            <Header></Header>
+            <Heading style={{color: "white"}}>Выберите класс</Heading>
             <ChooseClassPageContainer>
 
                 {values.map((value, index) => (

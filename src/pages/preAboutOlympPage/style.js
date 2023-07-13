@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Back from "../mainPage/back4.png"
 
 export const PreAboutOlympInfoPageBody = styled.div`
     width: 100%;
@@ -9,18 +10,31 @@ export const MainContainer = styled.div`
     height: 100vh;
     background-color: green;
     display: flex;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(${Back});
 `
 
 export const MainHeadingDiv = styled.div`
-    width: 40%;
+    width: 50%;
     display: flex;
-    margin-top: 45vh;
+    margin-top: 40vh;
     margin-left: 5vw;
+`
+
+export const MainContainerImage = styled.img`
+    display: flex;
+    height: 57vh;
+    width: auto;
+    margin-right: 7vw;
+    position: absolute;
+    right: 0;
+    margin-top: 25vh;
 `
 
 export const FourOlympDiv = styled.div`
     width: 100%;
-    background-color: red;
     margin: 0;
     padding: 0;
 `
@@ -38,4 +52,5 @@ export const OlympiadAvatarDiv = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    backgroundColor: white;
 `

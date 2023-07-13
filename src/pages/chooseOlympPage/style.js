@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Back from "../mainPage/back2.jpg"
+import Back from "../mainPage/back4.png"
 
 export const ChoosePageBody = styled.div`
     width: 100%;
