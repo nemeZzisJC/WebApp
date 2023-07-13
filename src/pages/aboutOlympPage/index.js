@@ -52,17 +52,17 @@ const displayAboutOlympPage = (olName) => {
             const regText = registrationInfo["registrationText"];
             const regLinkText = `${olympName} регистрация`;
             content.push(
-                <TextSectionContainer style={{backgroundColor: "#1A2529"}}>
+                <TextSectionContainer style={{backgroundColor: "#B0FFE2"}}>
                     <HeadingAndIcon>
-                        <AccountCircleRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></AccountCircleRoundedIcon><Heading style={{color: "rgb(1, 161, 108)"}}>Регистрация</Heading>
+                        <AccountCircleRoundedIcon sx={{fontSize: 40, color: "black", marginRight: "10px"}}></AccountCircleRoundedIcon><Heading style={{color: "black"}}>Регистрация</Heading>
                     </HeadingAndIcon>
 
                     <TextSectionText>
-                        <NormalText style={{color: 'white'}}>{regText}</NormalText>
+                        <NormalText style={{color: 'black'}}>{regText}</NormalText>
                     </TextSectionText>
 
                     <TextSectionText>
-                        <PreLinkText style={{color: 'white'}}>Ссылка на регистрацию: <TextSectionLink href={regLink}>{regLinkText}</TextSectionLink></PreLinkText>
+                        <PreLinkText style={{color: 'black'}}>Ссылка на регистрацию: <TextSectionLink href={regLink}>{regLinkText}</TextSectionLink></PreLinkText>
                     </TextSectionText>
                 </TextSectionContainer>
             )
@@ -85,19 +85,19 @@ const displayAboutOlympPage = (olName) => {
             console.log(`hasList: ${hasList}`)
 
             content.push(
-                <TextSectionContainer style={{backgroundColor: "#263237"}}>
+                <TextSectionContainer style={{backgroundColor: "#82FFCB"}}>
                     <HeadingAndIcon>
-                        <FlakyRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></FlakyRoundedIcon><Heading style={{color: 'rgb(1, 161, 108)'}}>Отоборочный этап</Heading>
+                        <FlakyRoundedIcon sx={{fontSize: 40, color: "black", marginRight: "10px"}}></FlakyRoundedIcon><Heading>Отоборочный этап</Heading>
                     </HeadingAndIcon>
 
                     <TextSectionText>
-                        <NormalText style={{color: "white"}}>{qualText}</NormalText>
+                        <NormalText>{qualText}</NormalText>
                     </TextSectionText>
                     
                     {hasList ? 
                     <TextSectionInnerList>
                     {itemsList.map((value, index) => (
-                        <NormalText style={{color: "white"}}>{index + 1}. {value}</NormalText>
+                        <NormalText>{index + 1}. {value}</NormalText>
                         ))}
                     </TextSectionInnerList>: null }
 
@@ -111,13 +111,13 @@ const displayAboutOlympPage = (olName) => {
             const finalText = finalInfo["finalInfoText"];
             const finalAttention = finalInfo["finalInfoAttention"];
             content.push(
-                <TextSectionContainer style={{backgroundColor: "#1A2529"}}>
+                <TextSectionContainer style={{backgroundColor: "#1DCD8D"}}>
                     <HeadingAndIcon>
-                        <WorkspacePremiumRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></WorkspacePremiumRoundedIcon><Heading style={{color: "rgb(1, 161, 108)"}}>Заключительный этап</Heading>
+                        <WorkspacePremiumRoundedIcon sx={{fontSize: 40}}></WorkspacePremiumRoundedIcon><Heading>Заключительный этап</Heading>
                     </HeadingAndIcon>
 
                     <TextSectionText>
-                        <NormalText style={{color: "white"}}>{finalText}</NormalText>
+                        <NormalText>{finalText}</NormalText>
                     </TextSectionText>
 
                     <TextSectionText>
@@ -135,16 +135,16 @@ const displayAboutOlympPage = (olName) => {
             const linkItems = materialInfo["preparationLinkItems"];
 
             content.push(
-                <TextSectionContainer style={{backgroundColor: "#263237"}}>
+                <TextSectionContainer style={{backgroundColor: "#23AF7B"}}>
                     <HeadingAndIcon>
-                        <MenuBookRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></MenuBookRoundedIcon><Heading style={{color: "rgb(1, 161, 108)"}}>Материалы для подготовки</Heading>
+                        <MenuBookRoundedIcon sx={{fontSize: 40, marginRight: "10px"}}></MenuBookRoundedIcon><Heading>Материалы для подготовки</Heading>
                     </HeadingAndIcon>
                     
                     {
                         textItems.map((value, index) => (
                             <TextSectionText>
                                 <NormalText style={{marginBottom: "3vh"}}><TextSectionLink href={linkItems[index]}>{index + 1}. {value[0]}</TextSectionLink></NormalText>
-                                <NormalText style={{marginLeft: "2vw", color: "white"}}>{value[1]}</NormalText>
+                                <NormalText style={{marginLeft: "2vw", color: "black"}}>{value[1]}</NormalText>
                             </TextSectionText>
                         ))
                     }
@@ -161,9 +161,9 @@ const displayAboutOlympPage = (olName) => {
 
             // adding a table 
             content.push(
-                <TextSectionContainer style={{paddingLeft: "5vw", paddingRight: "5vw", paddingTop: "10vh", backgroundColor: "#1A2529"}}>
+                <TextSectionContainer style={{paddingLeft: "5vw", paddingRight: "5vw", paddingTop: "10vh", backgroundColor: "#197956"}}>
                     <HeadingAndIcon>
-                        <StackedLineChartRoundedIcon sx={{fontSize: 40, color: "rgb(1, 161, 108)", marginRight: "10px"}}></StackedLineChartRoundedIcon><Heading style={{color: "rgb(1, 161, 108)"}}>Граничные баллы</Heading>
+                        <StackedLineChartRoundedIcon sx={{fontSize: 40, color: "white", marginRight: "10px"}}></StackedLineChartRoundedIcon><Heading style={{color: "white"}}>Граничные баллы</Heading>
                     </HeadingAndIcon>
 
                     {
@@ -180,17 +180,17 @@ const displayAboutOlympPage = (olName) => {
                 const rows = boundaryTables[i]["rowsData"];
 
                 content.push(
-                    <TextSectionContainer style={{padding: '10vh 5vw'}}>
-                    <Heading style={{marginBottom: '3vh'}}>{boundaryTables[i]["dataHeading"]}</Heading>
+                    <TextSectionContainer style={{padding: '10vh 5vw', backgroundColor: "#104c36"}}>
+                    <Heading style={{marginBottom: '3vh', color: 'white'}}>{boundaryTables[i]["dataHeading"]}</Heading>
                     <TableContainer>
                         <Table>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell align="center">Год</TableCell>
-                                    <TableCell align="center">Призёр 3 степени</TableCell>
-                                    <TableCell align="center">Призёр 2 степени</TableCell>
-                                    <TableCell align="center">Призёр 1 степени</TableCell>
-                                    <TableCell align="center">Общее кол-во баллов</TableCell>
+                                    <TableCell sx={{color: 'white'}} align="center">Год</TableCell>
+                                    <TableCell sx={{color: 'white'}}align="center">Призёр 3 степени</TableCell>
+                                    <TableCell sx={{color: 'white'}}align="center">Призёр 2 степени</TableCell>
+                                    <TableCell sx={{color: 'white'}}align="center">Призёр 1 степени</TableCell>
+                                    <TableCell sx={{color: 'white'}} align="center">Общее кол-во баллов</TableCell>
                                 </TableRow>
                             </TableHead>
 
@@ -199,11 +199,11 @@ const displayAboutOlympPage = (olName) => {
                                     <TableRow
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
-                                    <TableCell align="center">{row[0]}</TableCell>
-                                    <TableCell align="center">{row[1]}</TableCell>
-                                    <TableCell align="center">{row[2]}</TableCell>
-                                    <TableCell align="center">{row[3]}</TableCell>
-                                    <TableCell align="center">{row[4]}</TableCell>
+                                    <TableCell sx={{color: 'white'}} align="center">{row[0]}</TableCell>
+                                    <TableCell sx={{color: 'white'}} align="center">{row[1]}</TableCell>
+                                    <TableCell sx={{color: 'white'}} align="center">{row[2]}</TableCell>
+                                    <TableCell sx={{color: 'white'}} align="center">{row[3]}</TableCell>
+                                    <TableCell sx={{color: 'white'}} align="center">{row[4]}</TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>

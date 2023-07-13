@@ -20,7 +20,8 @@ export const PreLinkText = styled(NormalText)`
 `
 
 export const TextSectionLink = styled.a`
-    color: rgb(1, 161, 108);
+    color: #670087;
+    font-weight: 800;
     text-decoration: none;
 `
 
@@ -31,5 +32,5 @@ export const TextSectionInnerList = styled.div`
 `
 
 export const AttentionText = styled(NormalText)`
-    color: #FF6A6A;
+    color: #cc4d3d;
 `

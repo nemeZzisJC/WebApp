@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Back from "../mainPage/back4.png"
+import { NormalText } from "../../components/fonts/style";
 
 export const PreAboutOlympInfoPageBody = styled.div`
     width: 100%;
@@ -52,5 +53,9 @@ export const OlympiadAvatarDiv = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    backgroundColor: white;
+    background-color: #20CD8D;
+`
+
+export const NormalTextPreOlymp = styled(NormalText)`
+    font-weight: 700;
 `

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
 import Footer from "./components/footer";
-import Header from "./components/header";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import MainPage from "./pages/mainPage"
 import RegistrationPage from "./pages/registrationPage";

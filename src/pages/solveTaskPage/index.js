@@ -8,6 +8,12 @@ import { OlympContext } from "../../context/index.js";
 import { CheckOneButton } from "./style";
 import { useSingleCheck } from "../../hooks/useSingleCheck.js";
 import Header from "../../components/header";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
+import CongratsGif from "./congrats3.gif";
+import EditingGif from "./editing.gif";
+import { useNavigate } from "react-router-dom";
 
 
 const SolveTaskPage = () => {
@@ -19,6 +25,7 @@ const SolveTaskPage = () => {
         }
     },[]);
 
+    const navigate = useNavigate();
 
     const {
         olympName, setOlympName,
@@ -67,14 +74,34 @@ const SolveTaskPage = () => {
     console.log("USER ANSWERS");
     console.log(userAnswers);
 
+    // ALERTS
+    const correctOneTaskMessage = (task_index) => {
+        toast.success(`Задача ${task_index + 1} решена верно! Вы молодец!`, {position: toast.POSITION.TOP_RIGHT, 
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            progress: undefined});
+    }
+
+    const incorrectOneTaskMessage = (task_index) => {
+        toast.error(`К сожалению ответ на задачу ${task_index + 1} неверен. Не расстраивайтесь! У вас обязательно получится!`, {position: toast.POSITION.TOP_RIGHT,
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            progress: undefined
+        })
+    }
+
     const HandleCheckOneButtonClick = (task_index) => {
         const userAnswer = userAnswers[`userAnswer${task_index + 1}`];
         const correctAnswers = desiredTasks[task_index]["answers"];
 
         if (useSingleCheck(userAnswer, correctAnswers) === 1) {
-            alert(`Задача ${task_index + 1} решена верно! Вы молодец!`);
+            correctOneTaskMessage(task_index);
         } else {
-            alert(`К сожалению, ответ на задачу ${task_index + 1} не верен. Не расстраивайтесь! У вас обязательно получится!`);
+            incorrectOneTaskMessage(task_index);
         }
     }
 
@@ -92,7 +119,28 @@ const SolveTaskPage = () => {
             }
         }
 
-        alert(`Правильно решено ${cnt} задач из ${tasksLength}`);
+        if (cnt == tasksLength) {
+            Swal.fire({
+                title: 'Все задачи решены верно!',
+                text: 'Вы просто космос',
+                imageUrl: "https://img.icons8.com/clouds/100/checkmark--v2.png",
+                background: '#172627',
+                color: 'white',
+                backdrop: `
+                    url(${CongratsGif})
+                    top left
+                    no-repeat
+                `
+            });
+        } else {
+            Swal.fire({
+                title: `Результат: ${cnt}/${tasksLength}`,
+                text: 'Продалжайте работать! У вас всё получится!',
+                imageUrl: "https://img.icons8.com/clouds/100/work.png",
+                background: '#172627',
+                color: 'white'
+            });
+        }
     }
 
     const displayTask = (task_number) => {
@@ -145,6 +193,7 @@ const SolveTaskPage = () => {
                     <CheckOneButton id={`useraAnswer${index}_button`} onClick={() => (HandleCheckOneButtonClick(index))}>
                         <NormalText style={{fontSize: 14}}>Проверить задачу</NormalText>
                     </CheckOneButton>
+                    <ToastContainer/>
 
                 </TaskBody>
             ))}

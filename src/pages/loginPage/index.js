@@ -4,6 +4,8 @@ import { AuthFormContainer, AuthInput, AuthLabel, AuthLinkButton, AuthPageBody, 
 import { LoginForm } from "./style";
 import { isLoggedInContext } from "../../context/index.js";
 import Header from "../../components/header";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export const LoginPage = () => {
 
@@ -25,6 +27,49 @@ export const LoginPage = () => {
             .then((data) => {setUsers(data); console.log(data);})
             .catch((err) => {console.error(err)})
     }, [])
+
+    // Timeouts
+    function successfullLoginRedirection() {
+      successfullAuthMessage();
+
+      setTimeout(() => {
+          navigate('/chooseOlymp');
+      }, 3000)
+    }
+
+    // ALERTS
+    const successfullAuthMessage = (task_index) => {
+      toast.success(`Вы успешно вошли в свой аккаунт!`, {position: toast.POSITION.TOP_RIGHT, 
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          progress: undefined});
+    }
+
+    const incorrectPasswordMessage = () => {
+      toast.error(`Неправильный пароль!`,
+      {position: toast.POSITION.TOP_RIGHT, 
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          progress: undefined
+      })
+    }
+
+    const notRegisteredMessage = () => {
+      toast.error(`Вы не зарегистрированы!`,
+      {position: toast.POSITION.TOP_RIGHT, 
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          progress: undefined
+      })
+    }
+
+    // END OF ALERTS
 
     function updateUserLoggedInStatus(email) {
         const url = `http://localhost:3001/users?email=${email}`;
@@ -81,17 +126,16 @@ export const LoginPage = () => {
                     setIsLoggedIn(1);
                     console.log(isLoggedIn);
                     updateUserLoggedInStatus(email);
-                    alert("Successfully logged in!");
-                    navigate('/chooseOlymp')
+                    successfullLoginRedirection();
                 } else {
-                    alert("Inccorect password!");
+                    incorrectPasswordMessage();
                 }
                 flag = true;
                 break;
             }
         }
         if (!flag) {
-            alert("You are not registered!");
+          notRegisteredMessage();
         }
     };
 
@@ -110,6 +154,7 @@ export const LoginPage = () => {
                     <AuthSubmitButton type="submit">Войти</AuthSubmitButton>
                     
                     <Link to='/registration'><AuthLinkButton>Нет аккаунта? Зарегистрируйтесь здесь</AuthLinkButton></Link>
+                    <ToastContainer/>
                 </LoginForm>
             </AuthFormContainer>
         </AuthPageBody>

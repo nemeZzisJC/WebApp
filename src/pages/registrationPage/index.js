@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthPageBody, AuthFormContainer, RegisterForm, AuthLabel, AuthInput, AuthLinkButton, AuthSubmitButton, AuthHeading } from "./style";
 import Header from "../../components/header";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegistrationPage = () => {
 
@@ -25,6 +27,62 @@ const RegistrationPage = () => {
             .catch((err) => {console.error(err)})
     }, [])
 
+    // Timeouts
+
+    function successfullRedirection(username) {
+        successfullRegistration(username);
+
+        setTimeout(() => {
+            navigation('/login');
+        }, 3000)
+    }
+
+    // ALERTS
+
+    const successfullRegistration = (username) => {
+        toast.success(`Регистрация прошла успешно, ${username}`, {position: toast.POSITION.TOP_RIGHT, 
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            progress: undefined});
+    }
+
+    const emptyFieldWarningMessage = () => {
+        toast.error(`Все поля должны быть заполнены!`,
+        {position: toast.POSITION.TOP_RIGHT, 
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            progress: undefined
+        })
+    }
+
+    const usernameAlreadyExistsMessage = () => {
+        toast.error(`Пользователь с таким именем уже существует!`,
+        {position: toast.POSITION.TOP_RIGHT, 
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            progress: undefined
+        })
+    }
+
+    const emailAlreadyExistsMessage = () => {
+        toast.error(`Пользователь с такой почтой уже существует!`,
+        {position: toast.POSITION.TOP_RIGHT, 
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            progress: undefined
+        })
+    }
+
+    // END OF ALERTS
+
     const handleSubmit = (event) => {
         event.preventDefault();
         
@@ -36,15 +94,15 @@ const RegistrationPage = () => {
         }
 
         if (!formData.username || !formData.email || !formData.password) {
-            alert("Все поля должны быть заполнены!")
+            emptyFieldWarningMessage();
         } else {
             for (let i = 0; i < users.length; ++i) {
                 if (formData['email'] === users[i]['email']) {
-                    alert("Пользователь с данной почтой уже существует!");
+                    emailAlreadyExistsMessage();
                     return;
                 }
                 if (formData['username'] === users[i]['username']) {
-                    alert("Пользователь с данным именем уже существует!");
+                    usernameAlreadyExistsMessage();
                     return;
                 }
             }
@@ -62,9 +120,7 @@ const RegistrationPage = () => {
                 console.error(error);
             });
 
-            alert('Вы успешно зарегистрировались!');
-
-            navigation('/login');
+            successfullRedirection(username);
         }
     };
 
@@ -96,6 +152,7 @@ const RegistrationPage = () => {
                     <AuthInput value={password} onChange={handlePasswordChange} type="password" placeholder="*********" name="password"></AuthInput>
 
                     <AuthSubmitButton type="submit">Зарегистрироваться</AuthSubmitButton>
+                    <ToastContainer/>
                 </RegisterForm>
                 <Link to='/login'><AuthLinkButton>Уже есть аккаунт? Авторизуйтесь здесь</AuthLinkButton></Link>
             </AuthFormContainer>

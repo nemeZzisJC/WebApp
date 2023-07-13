@@ -4,7 +4,7 @@ export const NormalText = styled.p`
     font-family: 'Montserrat';
     font-size: 16px;
     margin: 0;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.65;
 `
 
@@ -12,7 +12,7 @@ export const PoppinsNormalText = styled.p`
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     margin: 0;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.7;
     color: white;
 `
