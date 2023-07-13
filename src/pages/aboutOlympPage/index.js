@@ -16,6 +16,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { useContext } from "react";
 import { aboutOlympNameContext } from "../../context/index.js";
+import BlackHeader from "../../components/blackHeader";
 
 
 const displayAboutOlympPage = (olName) => {
@@ -62,7 +63,7 @@ const displayAboutOlympPage = (olName) => {
                     </TextSectionText>
 
                     <TextSectionText>
-                        <PreLinkText style={{color: 'black'}}>Ссылка на регистрацию: <TextSectionLink href={regLink}>{regLinkText}</TextSectionLink></PreLinkText>
+                        <PreLinkText style={{color: 'black'}}>Ссылка на регистрацию: <TextSectionLink target="_blank" href={regLink}>{regLinkText}</TextSectionLink></PreLinkText>
                     </TextSectionText>
                 </TextSectionContainer>
             )
@@ -143,7 +144,7 @@ const displayAboutOlympPage = (olName) => {
                     {
                         textItems.map((value, index) => (
                             <TextSectionText>
-                                <NormalText style={{marginBottom: "3vh"}}><TextSectionLink href={linkItems[index]}>{index + 1}. {value[0]}</TextSectionLink></NormalText>
+                                <NormalText style={{marginBottom: "3vh"}}><TextSectionLink href={linkItems[index]} target="_blank">{index + 1}. {value[0]}</TextSectionLink></NormalText>
                                 <NormalText style={{marginLeft: "2vw", color: "black"}}>{value[1]}</NormalText>
                             </TextSectionText>
                         ))
@@ -186,11 +187,11 @@ const displayAboutOlympPage = (olName) => {
                         <Table>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell sx={{color: 'white'}} align="center">Год</TableCell>
-                                    <TableCell sx={{color: 'white'}}align="center">Призёр 3 степени</TableCell>
-                                    <TableCell sx={{color: 'white'}}align="center">Призёр 2 степени</TableCell>
-                                    <TableCell sx={{color: 'white'}}align="center">Призёр 1 степени</TableCell>
-                                    <TableCell sx={{color: 'white'}} align="center">Общее кол-во баллов</TableCell>
+                                    <TableCell sx={{color: 'white', fontWeight: 800}} align="center">Год</TableCell>
+                                    <TableCell sx={{color: 'white', fontWeight: 800}}align="center">Призёр 3 степени</TableCell>
+                                    <TableCell sx={{color: 'white', fontWeight: 800}}align="center">Призёр 2 степени</TableCell>
+                                    <TableCell sx={{color: 'white', fontWeight: 800}}align="center">Призёр 1 степени</TableCell>
+                                    <TableCell sx={{color: 'white', fontWeight: 800}} align="center">Общее кол-во баллов</TableCell>
                                 </TableRow>
                             </TableHead>
 
@@ -226,6 +227,7 @@ const AboutOlympPage = () => {
 
     return(
         <AboutOlympPageBody>
+            <BlackHeader/>
             {displayAboutOlympPage(aboutOlympName)}
         </AboutOlympPageBody>
     );

@@ -23,6 +23,25 @@ export const TextSectionLink = styled.a`
     color: #670087;
     font-weight: 800;
     text-decoration: none;
+    position: relative;
+
+    &:after {
+        content: "";
+        opacity: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        border: 0.5px solid #670087;
+        color: #670087;
+        transition: opacity 0.3s linear;
+    }
+
+    &:hover {
+        &:after {
+            opacity: 1;
+        }
+    }
 `
 
 export const TextSectionInnerList = styled.div`
@@ -32,5 +51,6 @@ export const TextSectionInnerList = styled.div`
 `
 
 export const AttentionText = styled(NormalText)`
-    color: #cc4d3d;
+    color: #d83220;
+    font-weight: 700;
 `

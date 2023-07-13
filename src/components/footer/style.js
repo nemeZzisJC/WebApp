@@ -26,3 +26,14 @@ export const SubmitContactUsButton = styled(AuthSubmitButton)`
         
     }
 `
+
+export const StyledTextArea = styled.textarea`
+    margin: 8px 0px;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+`

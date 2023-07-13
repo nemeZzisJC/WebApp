@@ -1,6 +1,6 @@
 import React from "react";
 import { AuthFormContainer, AuthInput, AuthLabel, AuthPageBody, AuthSubmitButton, AuthHeading } from "../../pages/registrationPage/style.js";
-import { ContactUsForm, ContainerImage } from "./style";
+import { ContactUsForm, ContainerImage, StyledTextArea } from "./style";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -41,11 +41,10 @@ const Footer = () => {
             emptyFieldWarningMessage();
         } else {
             successfullContactUs(username);
+            setMessage("");
+            setEmail("");
+            setUsername("");
         }
-
-        setMessage("");
-        setEmail("");
-        setUsername("");
     }
 
     return (
@@ -61,8 +60,8 @@ const Footer = () => {
                     <AuthLabel htmlFor="email" style={{color: "white"}}>Почта</AuthLabel>
                     <AuthInput value={email} onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder="your_email@gmail.com" id="contact_us_email" name="email"></AuthInput>
 
-                    <AuthLabel htmlFor="message" style={{color: "white"}} aria-multiline='true'>Сообщение</AuthLabel>
-                    <AuthInput value={message} onChange={(e) => {setMessage(e.target.value)}} type="text" placeholder="your_message" id="contact_us_message" name="message"></AuthInput>
+                    <AuthLabel htmlFor="message" style={{color: "white"}}>Сообщение</AuthLabel>
+                    <StyledTextArea value={message} onChange={(e) => {setMessage(e.target.value)}} placeholder="your_message" id="contact_us_message" name="message"></StyledTextArea>
 
                     <AuthSubmitButton type="submit" style={{fontWeight: 800, fontSize: 17, marginBottom: '5vh', border: 'none',backgroundColor: "#189967", marginTop: "30px",padding: "20px", borderRadius: "10px", cursor: "pointer", boxShadow: "3px 3.5px #106645"}}>Отправить</AuthSubmitButton>
                     <ToastContainer/>
